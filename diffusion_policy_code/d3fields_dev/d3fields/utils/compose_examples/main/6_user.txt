@@ -1,0 +1,3 @@
+# place a ball into a box
+# ["ball", "box"] 
+# move the red ball to the right-middle box.

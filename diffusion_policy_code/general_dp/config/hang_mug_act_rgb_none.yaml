@@ -1,0 +1,195 @@
+_target_: diffusion_policy.workspace.train_act_workspace.TrainACTWorkspace
+is_real: false
+robot_name: panda
+data_root: diffusion_policy_code/general_dp
+trial_name: hang_mug_act_rgb
+dataset_dir: ./dataset/rgb_mug
+output_dir: ${dataset_dir}/${trial_name}
+obs_shape:
+  - 3 # C
+  - 120 # H
+  - 160 # W
+act_shape:
+  - 10
+embedding_shape:
+  - 1536
+obs:
+  direct_up_view_color:
+    shape: ${obs_shape}
+    type: rgb
+  left_top_view_color:
+    shape: ${obs_shape}
+    type: rgb
+  left_bottom_view_color:
+    shape: ${obs_shape}
+    type: rgb
+  right_top_view_color:
+    shape: ${obs_shape}
+    type: rgb
+  right_bottom_view_color:
+    shape: ${obs_shape}
+    type: rgb
+  ee_pos:
+    shape: ${act_shape}
+    type: low_dim
+  embedding:
+    shape: ${embedding_shape}
+    type: low_dim
+
+checkpoint:
+  save_last_ckpt: true
+  save_last_snapshot: false
+  topk:
+    format_str: epoch={epoch:04d}-test_mean_score={test_mean_score:.3f}.ckpt
+    k: 5
+    mode: max
+    monitor_key: test_mean_score
+dataloader:
+  batch_size: 128
+  num_workers: 8
+  persistent_workers: false
+  pin_memory: true
+  shuffle: true
+dataset_obs_steps: 2
+ema:
+  _target_: diffusion_policy.model.diffusion.ema_model.EMAModel
+  inv_gamma: 1.0
+  max_value: 0.9999
+  min_value: 0.0
+  power: 0.75
+  update_after_step: 0
+exp_name: default
+horizon: 16
+keypoint_visible_rate: 1.0
+logging:
+  group: null
+  id: null
+  mode: online
+  name: ${trial_name}
+  project: diffusion_attention
+  resume: true
+  tags:
+    - train_diffusion_unet_hybrid
+    - ${task_name}
+    - sim
+    - default
+multi_run:
+  run_dir: data/outputs/${now:%Y.%m.%d}/train_diffusion_unet_hybrid_${task_name}
+  wandb_name_base: ${trial_name}
+n_action_steps: 8
+n_latency_steps: 0
+n_obs_steps: 2
+name: train_diffusion_unet_hybrid
+obs_as_global_cond: true
+optimizer:
+  _target_: torch.optim.AdamW
+  betas:
+    - 0.95
+    - 0.999
+  eps: 1.0e-08
+  lr: 0.0001
+  weight_decay: 1.0e-06
+past_action_visible: false
+policy:
+  _target_: diffusion_policy.policy.act_policy.ACTPolicy
+  enc_layers: 4
+  dec_layers: 6
+  nheads: 8
+  lr_backbone: 1.0e-05
+  lr: 1.0e-05
+  backbone: resnet18
+  kl_weight: 10.0
+  hidden_dim: 512
+  dim_feedforward: 3200
+  chunk_size: 16
+  n_action_steps: 8
+  shape_meta: ${shape_meta}
+
+shape_meta:
+  action:
+    shape: ${act_shape}
+  obs: ${obs}
+  2d_attn: false
+
+task:
+  abs_action: true
+  dataset:
+    _target_: diffusion_policy.dataset.sapien_dataset.SapienDataset
+    dataset_dir: ${dataset_dir}
+    vis_input: false
+    device: cuda:0
+    horizon: 16
+    pad_after: 7
+    pad_before: 1
+    rotation_rep: rotation_6d
+    seed: 42
+    n_obs_steps: 2
+    robot_name: panda
+    expected_labels: [background, soda, pad]
+    shape_meta: ${shape_meta}
+    use_cache: true
+    val_ratio: 0.1
+    manual_val_mask: false
+    manual_val_start: 200
+  dataset_dir: ${dataset_dir}
+  name: ${task_name}
+  env_runner:
+    _target_: diffusion_policy.env_runner.sapien_series_image_runner.SapienSeriesImageRunner
+    output_type: pose
+    pca_name: can
+    abs_action: true
+    crf: 22
+    dataset_dir: ${dataset_dir}
+    fps: 10
+    max_steps: 800
+    n_action_steps: 8
+    n_envs: null
+    n_obs_steps: 2
+    n_test: 0
+    n_test_vis: 0
+    n_train: 0
+    n_train_vis: 0
+    train_obj_ls:
+      - nescafe_mug
+    test_obj_ls:
+      - nescafe_mug
+    past_action: false
+    render_obs_keys:
+      - left_bottom_view
+      - right_bottom_view
+      - left_top_view
+      - right_top_view
+    policy_keys:
+      - d3fields
+    shape_meta: ${shape_meta}
+    test_start_seed: 100000
+    tqdm_interval_sec: 1.0
+    train_start_idx: 0
+  shape_meta: ${shape_meta}
+  task_name: ${task_name}
+task_name: can_original_DP
+dataset_name: can_demo_1_multi
+training:
+  checkpoint_every: 60
+  debug: false
+  device: cuda
+  device_id: 0
+  gradient_accumulate_every: 1
+  lr_scheduler: cosine
+  lr_warmup_steps: 2000
+  max_train_steps: null
+  max_val_steps: null
+  num_epochs: 600
+  resume: true
+  rollout_every: 100
+  sample_every: 5
+  seed: 42
+  tqdm_interval_sec: 1.0
+  use_ema: false
+  val_every: 60
+val_dataloader:
+  batch_size: 32
+  num_workers: 8
+  persistent_workers: false
+  pin_memory: true
+  shuffle: false

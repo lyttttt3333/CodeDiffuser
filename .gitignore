@@ -1,0 +1,8 @@
+/.vscode
+/ckpt
+/data
+/data_eval
+/data_train
+/outputs
+/src_pts
+/dataset

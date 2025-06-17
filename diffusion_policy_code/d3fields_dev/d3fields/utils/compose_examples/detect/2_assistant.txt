@@ -1,0 +1,6 @@
+```python
+bag_list = self.get_obj('bag')
+tgt_idx = self.find_instance_in_category(instance = 'bag next to the box', category = 'bag')
+tgt_bag = bag_list[tgt_idx]
+output_var = [tgt_bag]
+```

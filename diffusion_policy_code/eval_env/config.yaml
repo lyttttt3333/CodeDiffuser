@@ -1,0 +1,12 @@
+_target_: sapien_env.rl_env.hang_mug_env.HangMugRLEnv
+use_gui: true
+robot_name: panda
+frame_skip: 10
+use_visual_obs: false
+manip_obj:
+  - nescafe_mug_1
+  - nescafe_mug_3
+assign_idx:
+  - 0
+  - 2
+infer: true

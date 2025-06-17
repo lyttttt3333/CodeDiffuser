@@ -1,0 +1,5 @@
+_target_: sapien_env.rl_env.mug_collect_env.MugCollectRLEnv
+use_gui: true
+robot_name: panda
+frame_skip: 10
+use_visual_obs: false

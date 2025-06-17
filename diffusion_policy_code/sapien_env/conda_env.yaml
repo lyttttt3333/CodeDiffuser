@@ -1,0 +1,9 @@
+name: diff_gen
+channels:
+  - conda-forge
+dependencies:
+  - python=3.9
+  - pip=22.2.2
+  - pip:
+    - sapien==2.2.2
+    - pyperclip==1.8.2

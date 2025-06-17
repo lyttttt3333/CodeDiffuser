@@ -1,0 +1,45 @@
+```python
+
+# Determine non-target object, red ball
+ball_list = self.detect("ball")
+red_ball = self.detect("red ball")[0]
+
+# Determine target object, the other (non-red) ball
+non_red_ball = None
+for ball in ball_list: # Do not use list comprehensions.
+    if not np.array_equal(ball, red_ball):
+        non_red_ball = ball
+        break 
+
+# Determine target object, right-middle box
+
+# Detect boxes
+box_list = self.detect("box")
+box_centroid_list = [np.mean(pts, axis=0)[None, :] for pts in box_list]
+box_centroid_numpy = np.concatenate(box_centroid_list, axis=0)
+
+# Extract x and z coordinates
+box_x = box_centroid_numpy[:, 0] # determine right or left
+box_z = box_centroid_numpy[:, 2] # determine height
+
+# Find boxes that are on the right (x > 0)
+right_box_indices = np.where(box_x > 0)[0]
+right_box_z = box_z[right_box_indices]
+
+# Find the index of the box with the middle z-coordinate among the right boxes
+if right_box_z.size > 0:
+    median_z = np.median(right_box_z)
+    
+    # Find the index of the box whose z-coordinate is closest to the median
+    closest_idx = np.argmin(np.abs(right_box_z - median_z))
+    tgt_box_idx = right_box_indices[closest_idx]
+    tgt_box_pts = box_list[tgt_box_idx]
+else:
+    tgt_box_pts = None  # Handle the case where no right boxes are found
+
+output_var = {}
+output_var["ball"] = non_red_ball
+output_var["box"] = tgt_box_pts
+
+```
+

@@ -1,0 +1,17 @@
+```python
+
+# determine target object, red bag
+red_bag = self.detect("red bag")[0]
+
+# determine target object, top container
+container_list = self.detect("container")
+container_centroid_list = [np.mean(pts,axis=0)[None, :] for pts in container_list]
+container_centroid_numpy = np.concatenate(container_centroid_list, axis=0)
+container_z = container_centroid_numpy[:,2]
+tgt_container_idx = np.argmax(container_z)
+tgt_container_pts = container_list[tgt_container_idx]
+
+output_var = {}
+output_var["bag"] = red_bag
+output_var["container"] = tgt_container_pts
+```

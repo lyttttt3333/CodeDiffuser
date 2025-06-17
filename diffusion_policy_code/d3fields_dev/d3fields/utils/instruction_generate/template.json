@@ -1,0 +1,77 @@
+{
+    "no_slackness": [
+        "Hang the {mug} on the {branch}.",
+        "I want to use the {other_mug} to drink some water. Put away the other one on the {branch}.",
+        "I want to use the {other_mug} to drink some water. Put away the other mug on the {branch}.",
+        "I will use the {other_mug} to drink some water. Hang the {mug} on the {branch}.",
+        "Hang the {mug} on the {other_branch}. Sorry, the {branch}.",
+        "There are two mugs. Keep {other_mug} on the table, put the other one on {branch}.",
+        "I will not use this {mug} now. Hang it on {branch}",
+        "Put Bob's mug, the {mug}, on the {branch}."
+    ],
+    "mug_slackness": [
+        "Hang a mug on the {branch}.",
+        "Put away a mug on the {branch}.",
+        "Hang a mug on the {other_branch}. Sorry, the {branch}."
+    ],
+    "branch_slackness": [
+        "Hang the {mug} on a branch.",
+        "I want to use the {other_mug} to drink some water. Put away the other one on a branch.",
+        "I want to use the {other_mug} to drink some water. Put away the other mug on a branch.",
+        "I will use the {other_mug} to drink some water. Hang the {mug} on a branch.",
+        "Hang the {other_mug} on a branch. Sorry, the {mug}.",
+        "There are two mugs. Keep {other_mug} on the table, put the other one on a branch.",
+        "I will not use this {mug} now. Hang it on a branch",
+        "Put Bob's mug, the {mug}, on the a branch."
+    ],
+    "both_slackness": [
+        "Hang a mug on a branch.",
+        "There are two mugs. Keep one on the table, put the other one on a branch."
+    ],
+    "other": [
+        "Hang the {mug} on the {branch}.",
+        "Find the {branch} and I want to hang the {mug} to it on this branch.",
+        "Hang the {mug} on the {branch}.",
+        "Put away my mug, the left one, on the {branch}.",
+        "Put away my mug on the top branch. My mug is on the left.",
+        "Put away my mug on the top branch. It is on the left.",
+        "Put away my mug on the top branch. I usually place it on the left.",
+        "Put away my mug on the top branch. I usually place my mug on the left.",
+        "I want to use the {mug} to drink some water. Put away the other one on the top branch.",
+        "I want to use the {mug} to drink some water. Put away the other mug on the top branch.",
+        "I will use the {mug} to drink some water. Hang the white one on the top branch.",
+        "Hang the {mug} on the topmost branch. Sorry, the {branch}.",
+        "There are two mugs. Keep the white one on the table, put the other one on a random branch.",
+        "the left topmost branch is not empty, right? Hang the right mug on it.",
+        "Hang the {mug} on the right topmost branch. Sorry, the left topmost branch.",
+        "Randomly select an empty branch. Hang the {mug} on it.",
+        "I will not use this {mug} now. Hang it on the furthest branch relative to it.",
+        "I will not use this {mug} now. Hang it on the nearest branch relative to it.",
+        "Find the right topmost branch and I want to hang the same side mug on this branch.",
+        "The top branch is empty. hang a random mug on it.",
+        "Put Bob's mug, the red one, on the same side top branch."
+    ],
+    "adverse": [
+        "Hang the {mug} on the {branch}.",
+        "Find the {branch} and I want to hang the {mug} to it on this branch.",
+        "Hang the {mug} on the {branch}.",
+        "Put away my mug, the left one, on the {branch}.",
+        "Put away my mug on the top branch. My mug is on the left.",
+        "Put away my mug on the top branch. It is on the left.",
+        "Put away my mug on the top branch. I usually place it on the left.",
+        "Put away my mug on the top branch. I usually place my mug on the left.",
+        "I want to use the {mug} to drink some water. Put away the other one on the top branch.",
+        "I want to use the {mug} to drink some water. Put away the other mug on the top branch.",
+        "I will use the {mug} to drink some water. Hang the white one on the top branch.",
+        "Hang the {mug} on the topmost branch. Sorry, the {branch}.",
+        "There are two mugs. Keep the white one on the table, put the other one on a random branch.",
+        "the left topmost branch is not empty, right? Hang the right mug on it.",
+        "Hang the {mug} on the right topmost branch. Sorry, the left topmost branch.",
+        "Randomly select an empty branch. Hang the {mug} on it.",
+        "I will not use this {mug} now. Hang it on the furthest branch relative to it.",
+        "I will not use this {mug} now. Hang it on the nearest branch relative to it.",
+        "Find the right topmost branch and I want to hang the same side mug on this branch.",
+        "The top branch is empty. hang a random mug on it.",
+        "Put Bob's mug, the red one, on the same side top branch."
+    ]
+}

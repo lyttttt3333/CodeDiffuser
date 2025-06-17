@@ -1,0 +1,7 @@
+# RLBench: https://github.com/stepjam/RLBench#running-headless
+jupyter
+openai
+plotly
+transforms3d
+open3d
+python-dotenv

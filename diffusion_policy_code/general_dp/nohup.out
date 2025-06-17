@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "/home/yitong/diffusion/diffusion_policy_code/general_dp/train.py", line 10, in <module>
+    from diffusion_policy.workspace.base_workspace import BaseWorkspace
+  File "/home/yitong/diffusion/diffusion_policy_code/general_dp/diffusion_policy/workspace/base_workspace.py", line 4, in <module>
+    import hydra
+ModuleNotFoundError: No module named 'hydra'

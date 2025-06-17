@@ -1,0 +1,3 @@
+# place a can on a pad
+# ["can", "pad"] 
+# move the blue can to the pad on the thin pad

@@ -1,0 +1,26 @@
+```python
+
+# determine none-target object, bag in the box
+bags_in_box_pts = self.detect("bags in the box")[0]
+
+# determine target object, box which contains bag
+box_list = self.detect("box")
+box_centroid_list = [np.mean(pts,axis=0)[None, :] for pts in box_list]
+box_centroid_numpy = np.concatenate(box_centroid_list, axis=0)
+bag_in_box_centroid = np.mean(bags_in_box_pts, axis=0)
+box_bag_dist = np.linalg.norm(box_centroid_numpy - bag_in_box_centroid, axis=-1, ord=2)
+tgt_box_idx = np.argmin(box_bag_dist)
+tgt_box_pts = bowl_list[tgt_box_idx]
+
+# determine target object, bag on the right
+bag_list = self.detect("bag")
+bag_centroid_list = [np.mean(pts,axis=0)[None, :] for pts in bag_list]
+bag_centroid_numpy = np.concatenate(bag_centroid_list, axis=0)
+bag_x = bag_centroid_numpy[:,0]
+tgt_bag_idx = np.argmax(bag_x)
+tgt_bag_pts = bag_list[tgt_bag_idx]
+
+output_var = {}
+output_var["box"] = tgt_box_pts
+output_var["bag"] = tgt_bag_pts
+```

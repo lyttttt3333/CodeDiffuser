@@ -1,0 +1,72 @@
+{
+    "no_slackness": [
+        "Pick {init} into {tgt}.",
+        "I need to use {other_init}. Put away {init} in {tgt}.",
+        "The desk is too messy. Put away {init} into {tgt}.",
+        "I want to put {init} into {other_tgt}, oh sorry, {tgt}.",
+        "You should make the table more tidy, Just start from putting {init} into {tgt}."
+    ],
+    "init_slackness": [
+        "Pick a battery into {tgt}.",
+        "The desk is too messy. Put away a battery into {tgt}.",
+        "I want to put a battery into {other_tgt}, oh sorry, {tgt}.",
+        "I want to put a battery into {tgt}."
+    ],
+    "tgt_slackness": [
+        "Pick {init} into a slot.",
+        "I need to use {other_init}. Put away {init} in a random slot.",
+        "The desk is too messy. Put away {init} into an avaliable slot.",
+        "I want to put {other_init} into a slot, oh sorry, {init}.",
+        "You should make the table more tidy, Just start from putting {init} into a slot."
+    ],
+    "both_slackness": [
+        "Hang a battery on a slot.",
+        "There are some batteries on the table. Put one into an avaliable slot."
+    ],
+    "other": [
+        "Hang the {init} on the {tgt}.",
+        "Find the {tgt} and I want to hang the {init} to it on this tgt.",
+        "Hang the {init} on the {tgt}.",
+        "Put away my init, the left one, on the {tgt}.",
+        "Put away my init on the top tgt. My init is on the left.",
+        "Put away my init on the top tgt. It is on the left.",
+        "Put away my init on the top tgt. I usually place it on the left.",
+        "Put away my init on the top tgt. I usually place my init on the left.",
+        "I want to use the {init} to drink some water. Put away the other one on the top tgt.",
+        "I want to use the {init} to drink some water. Put away the other init on the top tgt.",
+        "I will use the {init} to drink some water. Hang the white one on the top tgt.",
+        "Hang the {init} on the topmost tgt. Sorry, the {tgt}.",
+        "There are two inits. Keep the white one on the table, put the other one on a random tgt.",
+        "the left topmost tgt is not empty, right? Hang the right init on it.",
+        "Hang the {init} on the right topmost tgt. Sorry, the left topmost tgt.",
+        "Randomly select an empty tgt. Hang the {init} on it.",
+        "I will not use this {init} now. Hang it on the furthest tgt relative to it.",
+        "I will not use this {init} now. Hang it on the nearest tgt relative to it.",
+        "Find the right topmost tgt and I want to hang the same side init on this tgt.",
+        "The top tgt is empty. hang a random init on it.",
+        "Put Bob's init, the red one, on the same side top tgt."
+    ],
+    "adverse": [
+        "Hang the {init} on the {tgt}.",
+        "Find the {tgt} and I want to hang the {init} to it on this tgt.",
+        "Hang the {init} on the {tgt}.",
+        "Put away my init, the left one, on the {tgt}.",
+        "Put away my init on the top tgt. My init is on the left.",
+        "Put away my init on the top tgt. It is on the left.",
+        "Put away my init on the top tgt. I usually place it on the left.",
+        "Put away my init on the top tgt. I usually place my init on the left.",
+        "I want to use the {init} to drink some water. Put away the other one on the top tgt.",
+        "I want to use the {init} to drink some water. Put away the other init on the top tgt.",
+        "I will use the {init} to drink some water. Hang the white one on the top tgt.",
+        "Hang the {init} on the topmost tgt. Sorry, the {tgt}.",
+        "There are two inits. Keep the white one on the table, put the other one on a random tgt.",
+        "the left topmost tgt is not empty, right? Hang the right init on it.",
+        "Hang the {init} on the right topmost tgt. Sorry, the left topmost tgt.",
+        "Randomly select an empty tgt. Hang the {init} on it.",
+        "I will not use this {init} now. Hang it on the furthest tgt relative to it.",
+        "I will not use this {init} now. Hang it on the nearest tgt relative to it.",
+        "Find the right topmost tgt and I want to hang the same side init on this tgt.",
+        "The top tgt is empty. hang a random init on it.",
+        "Put Bob's init, the red one, on the same side top tgt."
+    ]
+}

@@ -1,0 +1,3 @@
+# place a ball into a box
+# ["ball", "box"] 
+# leave the red ball alone, pick the other one to the right-middle box.

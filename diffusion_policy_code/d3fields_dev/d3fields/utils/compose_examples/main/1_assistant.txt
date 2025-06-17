@@ -1,0 +1,23 @@
+```python
+
+# determine target object, the nearest banana
+banana_centroid_list = [np.mean(pts,axis=0)[None, :] for pts in banana_list]
+banana_centroid_numpy = np.concatenate(banana_centroid_list, axis=0)
+banana_centroid_dist = np.linalg.norm(banana_centroid_numpy, axis=-1, ord=2)
+tgt_banana_idx = np.argmin(banana_centroid_dist)
+tgt_banana_centroid = banana_centroid_numpy[tgt_banana_idx]
+tgt_banana_pts = banana_list[tgt_banana_idx]
+
+# determine target object, the furthest bowl relative to the nearest banana
+bowl_list = self.detect("bowl")
+bowl_centroid_list = [np.mean(pts,axis=0)[None, :] for pts in bowl_list]
+bowl_centroid_numpy = np.concatenate(bowl_centroid_list, axis=0)
+bowl_banana_dist = np.linalg.norm(bowl_centroid_numpy - tgt_banana_centroid, axis=-1, ord=2)
+tgt_bowl_idx = np.argmin(bowl_banana_dist)
+tgt_bowl_pts = bowl_list[tgt_bowl_idx]
+
+
+output_var = {}
+output_var["banana"] = tgt_banana_pts
+output_var["bowl"] = tgt_bowl_pts
+```

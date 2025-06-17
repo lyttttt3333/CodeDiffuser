@@ -1,0 +1,4 @@
+```python
+pencil_list = self.get_obj('pencil')
+output_var = pencil_list
+```

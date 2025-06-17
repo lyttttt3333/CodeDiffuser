@@ -1,0 +1,12 @@
+```python
+
+# determine target object, blue can
+blue_can = self.detect("blue can")[0]
+
+# determine target object, thin pad
+thin_pad = self.detect("thin pad")[0]
+
+output_var = {}
+output_var["can"] = blue_can
+output_var["pad"] = thin_pad
+```

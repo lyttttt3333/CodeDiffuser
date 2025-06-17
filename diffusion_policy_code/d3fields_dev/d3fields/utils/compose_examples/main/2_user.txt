@@ -1,0 +1,3 @@
+# put a bag in a box
+# ["bag", "box"]
+# put the bag on the right into the box which contains some bags

@@ -1,0 +1,253 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Aloha: record demos",
+            "type": "debugpy",
+            "request": "launch",
+            "cwd": "${workspaceFolder}/general_dp",
+            "program": "demo_real_aloha.py",
+            "args": [
+                "-o",
+                // "/home/neo/Documents/general_dp/data/real_aloha_demo/pack",
+                // "/home/neo/Documents/general_dp/data/real_aloha_demo/hang_mug",
+                // "/home/neo/Documents/general_dp/data/real_aloha_demo/aloha_coffee_cup",
+                // "/home/neo/Documents/general_dp/data/real_aloha_demo/aloha_pack_battery_attn",
+                "/home/neo/Documents/general_dp/data/real_aloha_demo/aloha_stow_book_test",
+                // "/home/neo/Documents/general_dp/data/real_aloha_demo/test",
+                "-r",
+                "right",
+                // "-r",
+                // "left",
+                // init_qpos for sweeping task
+                "-j",
+                "0.0",
+                "-j",
+                "-0.865",
+                "-j",
+                "0.6",
+                "-j",
+                "0.0",
+                "-j",
+                "1.35",
+                "-j",
+                "0.0",
+                "-j",
+                "-0.5", // right qpos
+                "-j",
+                "0.0",
+                "-j",
+                "-0.94",
+                "-j",
+                "0.72",
+                "-j",
+                "0.0",
+                "-j",
+                "1.31",
+                "-j",
+                "0.0",
+                "-j",
+                "-0.5" // left qpos
+            ]
+        },
+        {
+            "name": "Aloha: eval policy",
+            "type": "debugpy",
+            "request": "launch",
+            "cwd": "${workspaceFolder}/general_dp",
+            "program": "eval_real_aloha.py",
+            "args": [
+                "-i",
+                // "../data/outputs/aloha_hang_mug/latest.ckpt",
+                "../data/outputs/aloha_hang_mug_attn/latest.ckpt",
+                // "../data/outputs/aloha_pack_battery_attn/latest.ckpt",
+                "-o",
+                // "../data/outputs/aloha_hang_mug/eval",
+                "../data/outputs/aloha_hang_mug_attn/eval",
+                // "../data/outputs/aloha_pack_battery_attn/eval",
+                "--steps_per_inference",
+                "15",
+                "-r",
+                "right",
+                // "-r",
+                // "left",
+                "--vis_d3fields",
+                "true",
+                "--n_action_steps",
+                "8",
+                // init_qpos for sweeping task
+                "-j",
+                "0.0",
+                "-j",
+                "-0.865",
+                "-j",
+                "0.6",
+                "-j",
+                "0.0",
+                "-j",
+                "1.35",
+                "-j",
+                "0.0",
+                "-j",
+                "-0.5", // right qpos
+                "-j",
+                "0.0",
+                "-j",
+                "-0.94",
+                "-j",
+                "0.72",
+                "-j",
+                "0.0",
+                "-j",
+                "1.31",
+                "-j",
+                "0.0",
+                "-j",
+                "-0.5" // left qpos
+            ]
+        },
+        {
+            "name": "train policy",
+            "type": "debugpy",
+            "request": "launch",
+            "cwd": "${workspaceFolder}/general_dp",
+            "program": "train.py",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            // "justMyCode": false,
+            "env": {
+                // "CUDA_LAUNCH_BLOCKING": "1",
+                // "HYDRA_FULL_ERROR": "1"
+            },
+            "args": [
+                // "--config-dir=config/aloha_hang_mug",
+                "--config-dir=config/aloha_pack_battery",
+                // "--config-name=pcd.yaml",
+                "--config-name=rgb_easy.yaml",
+                // "--config-name=pcd_label.yaml",
+                "training.seed=42",
+                "training.device=cuda",
+                "training.device_id=0",
+                "data_root=/home/neo/Documents/general_dp"
+            ]
+        },
+        {
+            "name": "sim dataset generation",
+            "type": "debugpy",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "program": "sapien_env/sapien_env/teleop/script_data_wrapper.py",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "args": [
+                "insert_soda",
+                "5",
+                "/home/neo/Documents/general_dp",
+                "--stand_mode"
+                // "--simple_mode"
+                // "--fix_pick",
+                // "--fix_place",
+            ]
+        },
+        {
+            "name": "visualization for dataset",
+            "type": "debugpy",
+            "request": "launch",
+            "cwd": "${workspaceFolder}/general_dp",
+            "program": "dataset_vis.py",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "args": [
+                "--config-dir=config/can",
+                // "--config-name=no_seg_no_dino_N_4000_5_demo_multi.yaml",
+                "--config-name=no_seg_no_dino_N_4000_3_demo_multi.yaml",
+                "robot_name=panda"
+            ]
+        },
+        {
+            "name": "vis_repr",
+            "type": "debugpy",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "program": "d3fields_dev/vis_repr.py",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "args": []
+        },
+        {
+            "name": "interactive_vis_repr",
+            "type": "debugpy",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "program": "d3fields_dev/interactive_corr.py",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "args": []
+        },
+        {
+            "name": "eval DP in sim",
+            "type": "debugpy",
+            "request": "launch",
+            "cwd": "${workspaceFolder}/general_dp",
+            "program": "eval.py",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "args": [
+                // "--checkpoint=/media/yixuan_2T/guang/general_dp/data/outputs/pack_stand_300/latest.ckpt",
+                // "--checkpoint=/media/yixuan_2T/guang/general_dp/data/outputs/pack_300/latest.ckpt",
+                "--checkpoint=/home/neo/Documents/general_dp/data/outputs/insert_soda_pcd/checkpoints/latest.ckpt",
+                // "--output_dir=/media/yixuan_2T/guang/general_dp/data/outputs/pack_stand_300/eval",
+                // "--output_dir=/media/yixuan_2T/guang/general_dp/data/outputs/pack_300/eval",
+                "--output_dir=/home/neo/Documents/general_dp/data/outputs/insert_soda_pcd/eval",
+                // "--dataset_dir=/media/yixuan_2T/guang/general_dp/data/sapien_demo/pack_stand_demo_300",
+                "--dataset_dir=/home/neo/Documents/general_dp/data/sapien_demo/insert_soda_demo_600_stand",
+                // "--train_obj_ls=book_1",
+                // "--test_obj_ls=book_1",
+                "--n_test=10",
+                "--n_test_vis=0",
+                "--n_train=0",
+                "--n_train_vis=0"
+            ]
+        },
+        {
+            "name": "skill metadata generation",
+            "type": "debugpy",
+            "request": "launch",
+            "cwd": "${workspaceFolder}/language_model_program",
+            "program": "skill_metadata.py",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "args": [
+                "--config-dir=${cwd}/general_dp/config/can",
+                "--config-name=no_seg_no_dino_N_4000_100_demo.yaml",
+                // "+input_type=plot",
+                "+input_type=video",
+                // "+vis=True",
+                "+vis=False"
+            ]
+        },
+        // {
+        //     "name": "eval LMP in sim",
+        //     "type": "debugpy",
+        //     "request": "launch",
+        //     "cwd": "${workspaceFolder}",
+        //     "program": "language_model_program/envs/diffusion_policy_env.py",
+        //     "console": "integratedTerminal",
+        //     "justMyCode": true,
+        //     "args": []
+        // },
+        {
+            "name": "test LMP",
+            "type": "debugpy",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "program": "language_model_program/main.py",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "args": []
+        }
+    ]
+}

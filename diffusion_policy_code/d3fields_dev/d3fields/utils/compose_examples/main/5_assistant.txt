@@ -1,0 +1,33 @@
+```python
+
+# Determine target object, red ball
+red_ball = self.detect("red ball")[0]
+
+# Determine target object, left-topmost box
+
+# Detect boxes
+box_list = self.detect("box")
+box_centroid_list = [np.mean(pts, axis=0)[None, :] for pts in box_list]
+box_centroid_numpy = np.concatenate(box_centroid_list, axis=0)
+
+# Extract x and z coordinates
+box_x = box_centroid_numpy[:, 0] # determine right or left
+box_z = box_centroid_numpy[:, 2] # determine height
+
+# Find boxes that are on the left (x < 0)
+left_box_indices = np.where(box_x < 0)[0]
+left_box_z = box_z[left_box_indices]
+
+# Find the index of the box with the highest z-coordinate among the left boxes
+if left_box_z.size > 0:
+    tgt_box_idx = left_box_indices[np.argmax(left_box_z)]
+    tgt_box_pts = box_list[tgt_box_idx]
+else:
+    tgt_box_pts = None  # Handle the case where no left boxes are found
+
+output_var = {}
+output_var["ball"] = red_ball
+output_var["box"] = tgt_box_pts
+
+```
+

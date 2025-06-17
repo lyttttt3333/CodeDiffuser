@@ -1,0 +1,11 @@
+{
+    "python.analysis.extraPaths": [
+        "~/general_dp/sapien_env"
+    ],
+    "cSpell.words": [
+        "omegaconf"
+    ],
+    "ros.distro": "noetic",
+    "python.analysis.autoImportCompletions": true,
+    "python.analysis.typeCheckingMode": "off"
+}

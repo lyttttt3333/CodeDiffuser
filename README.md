@@ -229,6 +229,8 @@ eval_results/
 - [x] Upload running scripts for data generation and training
 - [ ] Code for real world deployment
 - [ ] Standalone example for 3D attention map
+- [ ] Benchmark generation
+- [ ] Dataset and checkpoint downloading
 
 
 ## :pray: Acknowledgement

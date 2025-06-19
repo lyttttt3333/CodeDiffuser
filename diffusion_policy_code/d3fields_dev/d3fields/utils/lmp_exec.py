@@ -6,7 +6,7 @@ from openai import OpenAI
 from d3fields.utils.lmp_utils import Vision, text_from_path
 from d3fields.utils.my_utils import bcolors
 
-api_key = "sk-proj-ciEKUfoCmHPsGZaRjEylT3BlbkFJd6FGZcY0IdwyJkjYArjH"
+api_key = None
 client = OpenAI(api_key=api_key)
 
 

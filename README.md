@@ -17,10 +17,11 @@
 <sup>3</sup>University of Illinois Urbana-Champaign,
 <sup>4</sup>Tsinghua University<br>
 
-<video width="800" controls>
+[<video width="800" controls>
   <source src="https://robopil.github.io/code-diffuser/media/demo.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
+](https://github.com/user-attachments/assets/75f529fd-e50e-4c4f-9be2-c930f1d08021)
 
 https://robopil.github.io/code-diffuser/
 

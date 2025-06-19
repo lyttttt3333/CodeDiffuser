@@ -19,8 +19,6 @@
 
 https://github.com/user-attachments/assets/75f529fd-e50e-4c4f-9be2-c930f1d08021
 
-https://robopil.github.io/code-diffuser/
-
 
 ## :bookmark_tabs: Table of Contents
 - [Overview](#video_game-overview)
@@ -225,7 +223,12 @@ eval_results/
 └── env_attn.json         # success rate of whole policy
 ```
 
+## ✅ To-Do List
 
+- [x] Upload full code for experiments in simulation
+- [x] Upload running scripts for data generation and training
+- [ ] Code for real world deployment
+- [ ] Standalone example for 3D attention map
 
 
 ## :pray: Acknowledgement
